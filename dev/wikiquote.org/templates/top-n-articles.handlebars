@@ -1,0 +1,114 @@
+{{! Bookshelves }}
+{{!<h2 class="bookshelf-container">
+    <span class="bookshelf">
+		<span class="text">
+			<bdi dir="ltr">
+				{{formatNumber 1000000 thousandSeparator=true rounded=true nbsp=true}}+
+	{{!		 </bdi>
+			<span class="jsl10n" data-jsl10n="entries">
+				articles
+			</span>
+		</span>
+    </span>
+</h2> 
+
+{{! 1,000,000+ content pages }}
+ {{!<div class="langlist langlist-large hlist" data-el-section="secondary links">
+    <ul>
+    {{#each top1000000Articles}}
+       {{! {{> top-n-articles.li}} 
+    {{! {{/each}}
+   {{!  </ul>
+</div>
+
+{{! Bookshelves }}
+{{! <h2 class="bookshelf-container">
+    <span class="bookshelf">
+		<span class="text">
+			<bdi dir="ltr">
+				{{formatNumber 100000 thousandSeparator=true rounded=true nbsp=true}}+
+{{!                </bdi>
+			<span class="jsl10n" data-jsl10n="entries">
+				articles
+			</span>
+		</span>
+    </span>
+</h2>
+
+{{! 100,000+ content pages }}
+ <div class="langlist langlist-large hlist" data-el-section="secondary links">
+    <ul>
+        {{#each top100000Articles}}
+          {{> top-n-articles.li}}
+         {{/each }}
+   </ul>
+</div> 
+
+{{! Bookshelves }}
+<h2 class="bookshelf-container">
+    <span class="bookshelf">
+		<span class="text">
+			<bdi dir="ltr">
+				{{formatNumber 10000 thousandSeparator=true rounded=true nbsp=true}}+
+			</bdi>
+			<span class="jsl10n" data-jsl10n="entries">
+				articles
+			</span>
+		</span>
+    </span>
+</h2>
+
+{{! 10,000+ content pages }}
+<div class="langlist hlist" data-el-section="secondary links">
+    <ul>
+        {{#each top10000Articles}}
+            {{> top-n-articles.li}}
+        {{/each}}
+    </ul>
+</div>
+
+{{! Bookshelves }}
+<h2 class="bookshelf-container">
+    <span class="bookshelf">
+		<span class="text">
+			<bdi dir="ltr">
+				{{formatNumber 1000 thousandSeparator=true rounded=true nbsp=true}}+
+			</bdi>
+			<span class="jsl10n" data-jsl10n="entries">
+				articles
+			</span>
+		</span>
+    </span>
+</h2>
+
+{{! 1,000+ content pages }}
+<div class="langlist hlist" data-el-section="secondary links">
+    <ul>
+        {{#each top1000Articles}}
+            {{> top-n-articles.li}}
+        {{/each}}
+    </ul>
+</div>
+
+{{! Bookshelves }}
+<h2 class="bookshelf-container">
+    <span class="bookshelf">
+		<span class="text">
+			<bdi dir="ltr">
+				{{formatNumber 100 thousandSeparator=true rounded=true nbsp=true}}+
+			</bdi>
+			<span class="jsl10n" data-jsl10n="entries">
+				articles
+			</span>
+		</span>
+    </span>
+</h2>
+
+{{! 100+ content pages }}
+<div class="langlist langlist-tiny hlist" data-el-section="secondary links">
+    <ul>
+        {{#each top100Articles}}
+            {{> top-n-articles.li}}
+        {{/each}}
+    </ul>
+</div>

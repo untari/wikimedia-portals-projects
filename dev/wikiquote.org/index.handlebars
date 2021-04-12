@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="mul" class="no-js">
+<head>
+<meta charset="utf-8">
+<title>Wikiquote</title>
+<meta name="description" content="Wikiquote is a collection of quotations, created and edited by volunteers around the world and hosted by the Wikimedia Foundation.">
+<script async src="//meta.wikimedia.org/w/load.php?debug=false&amp;lang=en&amp;modules=ext.gadget.wm-portal&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>
+    document.documentElement.className = document.documentElement.className.replace( /(^|\s)no-js(\s|$)/, "$1js-enabled$2" );
+</script>
+
+<meta name="viewport" content="initial-scale=1.0, user-scalable=yes">
+<link rel="apple-touch-icon" href="/static/apple-touch/wikiquote.png">
+<link rel="shortcut icon" href="/static/favicon/wikiquote.ico">
+<link rel="license" href="//creativecommons.org/licenses/by-sa/3.0/">
+<link rel="stylesheet" href="assets/css/sprite.css">
+<link rel="stylesheet" href="assets/css/style.css">
+{{#each preloadLinks}}
+<link rel="preload" as="{{as}}" href="{{href}}">
+{{/each}}
+<link rel="preconnect" href="//upload.wikimedia.org">
+</head>
+
+<body id="www-wikiquote-org">
+
+{{> header-logo}}
+
+{{> top10}}
+
+{{! Search form }}
+{{> search}}
+
+{{> language-list-button }}
+
+<div class="lang-list-border"></div>
+
+<div class="lang-list-container">
+
+    <div id="js-lang-lists" class="lang-list-content">
+        {{> top-n-articles}}
+        {{! Other languages }}
+        {{> other-languages}}
+    </div>
+
+</div>
+
+{{> divider}}
+
+{{> footer}}
+
+{{> site-license }}
+
+<script>
+    var rtlLangs = {{{rtlLanguagesStringified}}},
+    translationsHash = '{{translationChecksum}}',
+    /*
+     This object is used by l10n scripts (page-localized.js, topten-localized.js)
+     to reveal the page content after l10n json is loaded.
+     A timer is also set to prevent JS from hiding page content indefinitelty.
+     This script is inlined to safeguard againt script loading errors and placed
+     at the top of the page to safeguard against any HTML loading/parsing errors.
+    */
+    wmL10nVisible = {
+        ready: false,
+        makeVisible: function(){
+            if ( !wmL10nVisible.ready ) {
+                wmL10nVisible.ready = true;
+                document.body.className += ' jsl10n-visible';
+            }
+        }
+    };
+    window.setTimeout( wmL10nVisible.makeVisible, 1000 )
+</script>
+
+<!-- build:js assets/js/index.js -->
+
+{{! Utilities or polyfills }}
+<script src="assets/js/polyfills.js"></script>
+<script src="assets/js/underscore.partial.js"></script>
+<script src="assets/js/mediawiki.lite.js"></script>
+
+{{! Event logging & AB testing }}
+<script src="assets/js/seedrandom.js"></script>
+<script src="assets/js/event-logging-lite.js"></script>
+<script src="assets/js/wm-test.js"></script>
+<script src="assets/js/wikiquote-org-event-logging.js"></script>
+
+{{! Page features }}
+<script src="assets/js/wm-typeahead.js"></script>
+<script src="assets/js/typeahead-init.js"></script>
+<script src="assets/js/topten-localized.js"></script>
+<script src="assets/js/wm-portal.js"></script>
+<script src="assets/js/lang-dropdown.js"></script>
+<script src="assets/js/page-localized.js"></script>
+
+<!-- endbuild -->
+
+
+{{!
+This comment is read by all browsers and IE greater than 9.
+Note, that conditional comments support got removed in IE 10+.
+Hence all IEs not parsing conditional comments any more will load script.
+}}
+<!--[if gt IE 9]><!-->
+<!-- build:js assets/js/gt-ie9.js -->
+<script src="assets/js/search-language-picker.js"></script>
+<!-- endbuild -->
+<!--<![endif]-->
+
+{{!
+This comment is read by all browsers and IE less than or equal to 9.
+}}
+<!--[if lte IE 9]><!-->
+<style>
+    .styled-select {
+        display: block;
+    }
+</style>
+<!--<![endif]-->
+
+{{!
+This comment is read only by IE less than or equal to 9.
+}}
+<!--[if lte IE 9]>
+<style>
+    .langlist > ul {
+        text-align: center;
+    }
+    .langlist > ul > li {
+        display: inline;
+        padding: 0 0.5em;
+    }
+</style>
+<![endif]-->
+
+</body>
+</html>

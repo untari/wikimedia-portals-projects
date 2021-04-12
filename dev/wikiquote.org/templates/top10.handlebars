@@ -1,0 +1,25 @@
+{{! Container div for the central logo and the links to the most viewed language editions  }}
+<div class="central-featured" data-el-section="primary links">
+
+    {{! Rankings from http://stats.wikimedia.org/EN/Sitemap.htm }}
+    {{! Article counts from http://meta.wikimedia.org/wiki/List_of_Wikipedias/Table }}
+    {{#each top10views}}
+
+        <!-- #{{index}}. {{url}} - {{formatNumber views thousandSeparator=true rounded=true}} views/day -->
+        <div class="central-featured-lang lang{{index}}" lang="{{lang}}" dir="{{#has ../rtlLanguages lang}}rtl{{else}}ltr{{/has}}">
+        <a id="js-link-box-{{lang}}"
+           href="//{{url}}/"
+           title="{{#if latin}}{{latin}}{{else}}{{name}}{{/if}} — {{siteName}} — {{slogan}}"
+           class="link-box"{{printAttrs 'linkBoxAttrs'}}
+           data-slogan="{{slogan}}">
+            <strong>{{{name}}}</strong>
+            {{#if articlesAttrs}}
+                <small><bdi dir="ltr">{{formatNumber numPages thousandSeparator=true rounded=true nbsp=true}}+</bdi> <span{{printAttrs 'articlesAttrs'}}>{{entries}}</span></small>
+            {{else}}
+                <small><bdi dir="ltr">{{formatNumber numPages thousandSeparator=true rounded=true nbsp=true}}+</bdi> <span>{{entries}}</span></small>
+            {{/if}}
+            </a>
+        </div>
+    {{/each}}
+
+</div>

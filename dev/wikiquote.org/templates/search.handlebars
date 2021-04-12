@@ -1,0 +1,34 @@
+<div class="search-container">
+    <form class="pure-form" id="search-form" action="//www.wikiquote.org/search-redirect.php" data-el-section="search">
+        <fieldset>
+            {{! search-redirect.php is project-independent, requires a family }}
+            <input type="hidden" name="family" value="wikiquote">
+
+            <input type="hidden" id="hiddenLanguageInput" name="language" value="en">
+
+            <div class="search-input" id="search-input">
+                <label for="searchInput" class="screen-reader-text" data-jsl10n="search-input-label">Search Wikiquote</label>
+                <input id="searchInput" name="search" type="search" size="20" autofocus="autofocus" accesskey="F" dir="auto" autocomplete="off">
+
+                <div class="styled-select no-js">
+                    <div class="hide-arrow">
+                        <select id="searchLanguage" name="language">
+                            {{! 100,000+ content pages, sorted by romanization }}
+                            {{#each top100000Dropdown}}
+                                {{> search.option}}
+                            {{/each}}
+                        </select>
+                        <div class="styled-select-active-helper"></div>
+                    </div>
+                    <i class="sprite svg-arrow-down"></i>
+                </div>
+            </div>
+
+            <button class="pure-button pure-button-primary-progressive" type="submit">
+                <i class="sprite svg-search-icon" data-jsl10n="search-input-button">Search</i>
+            </button>
+            <input type="hidden" value="Go" name="go">
+
+        </fieldset>
+    </form>
+</div>

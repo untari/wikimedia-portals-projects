@@ -1,0 +1,96 @@
+/* ::: Other projects ::: */
+
+.other-projects {
+	display: inline-block;
+	width: 65%;
+}
+
+.other-project {
+	float: left;
+	position: relative;
+	width: 33%;
+	height: 9rem;
+}
+
+.other-project-link {
+	display: inline-block;
+	min-height: 50px;
+	width: 100%;
+	white-space: nowrap;
+}
+
+/* Override partial underlining (T232286) */
+a.other-project-link {
+	text-decoration: none;
+}
+
+.other-project-icon {
+	display: inline-block;
+	width: 50px;
+	text-align: center;
+}
+
+/* Wikinews icon remains a raster PNG due to the
+complexity of the SVG file */
+.svg-Wikinews-logo_sister {
+	background-image: url( portal/wikipedia.org/assets/img/Wikinews-logo_sister.png );
+	background-position: 0 0;
+	background-size: 47px 26px;
+	width: 47px;
+	height: 26px;
+}
+
+@media ( min-resolution: 120dpi ) {
+	.svg-Wikinews-logo_sister {
+		background-image: url( portal/wikipedia.org/assets/img/Wikinews-logo_sister@2x.png );
+	}
+}
+
+.other-project .sprite-project-logos {
+	display: inline-block;
+}
+
+.other-project-text {
+	display: inline-block;
+	max-width: 65%; /* approximating the 50px width of the icon */
+	font-size: 1.4rem;
+	vertical-align: middle;
+	white-space: normal;
+}
+
+.other-project-title,
+.other-project-tagline {
+	display: block;
+}
+
+.other-project-tagline {
+	color: var( --ss-c-grey );
+	font-size: 1.3rem;
+}
+
+@media screen and ( max-width: 768px ) {
+	.other-projects {
+		width: 100%;
+	}
+
+	.other-project {
+		width: 33%;
+	}
+}
+
+@media screen and ( max-width: 480px ) {
+	.other-project {
+		width: 50%;
+	}
+
+	.other-project-tagline {
+		hyphens: auto;
+	}
+}
+
+@media screen and ( max-width: 320px ) {
+	.other-project-text {
+		margin-right: 5px;
+		font-size: 1.3rem;
+	}
+}

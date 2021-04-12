@@ -1,0 +1,101 @@
+/* ::: Search bar below the central logo area ::: */
+
+.search-container {
+	float: none;
+	max-width: 95%;
+	width: 540px;
+	margin: 0.4rem auto 1.95rem auto;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.search-container fieldset {
+	/* Workaround for whitespace between `display: inline-block` elements.
+	 * Going for `4px` only to be on the safe side, where browsers add 4-5 px.
+	 * See https://stackoverflow.com/questions/4767971/how-do-i-center-float-elements
+	 */
+	word-spacing: -4px;
+}
+
+.search-container button {
+	min-height: 4.4rem;
+	margin: 0;
+	border-radius: 0 var( --border-radius-base ) var( --border-radius-base ) 0;
+	padding: 0.8rem 1.6rem;
+	font-size: 1.6rem;
+	z-index: var( --ss-button-z-index );
+}
+
+/* Hide text from visual browsers */
+.search-container button .svg-search-icon {
+	/* Rely on `px` here, as we don't need `rem` with `px` fallback in this case. */
+	text-indent: -9999px;
+}
+
+/* --- CSS tricks to make the search input a simple input */
+.search-container input[ type="search" ]::-webkit-search-results-button,
+.search-container input[ type="search" ]::-webkit-search-results-decoration {
+	-webkit-appearance: none;
+}
+
+.search-container input::-webkit-calendar-picker-indicator {
+	display: none;
+}
+
+.search-container .sprite.svg-arrow-down {
+	position: absolute;
+	top: 0.8rem;
+	right: 0.6rem;
+}
+
+#searchInput {
+	/*
+	 * Support Chrome, Safari 5: Correct the odd appearance
+	 * Note: `-webkit-appearance: textfield` has stopped working on iOS.
+	 */
+	-webkit-appearance: none;
+	width: 100%;
+	height: 4.4rem;
+	border-width: var( --border-width-base ) 0 var( --border-width-base ) var( --border-width-base );
+	border-radius: var( --border-radius-base ) 0 0 var( --border-radius-base );
+	padding: 0.8rem 9.6rem 0.8rem 1.2rem;
+	font-size: 1.6rem;
+	line-height: 1.6;
+	transition: background 100ms ease, border-color 100ms ease, box-shadow 100ms ease;
+}
+
+#searchInput:hover {
+	border-color: var( --wmui-color-base30 );
+}
+
+#searchInput:focus {
+	border-color: var( --wmui-color-accent50 );
+	box-shadow: var( --box-shadow-base--focus );
+	outline: 0;
+}
+
+/* Language picker */
+.search-container .search-input {
+	display: inline-block;
+	position: relative;
+	width: 73%;
+	vertical-align: top;
+}
+
+/* Responsive mode */
+@media only screen and ( max-width: 480px ) {
+	.search-container .pure-form fieldset {
+		margin-left: 1rem;
+		margin-right: 6.6rem; /* Equals button width + margin-left above */
+	}
+
+	.search-container .search-input {
+		width: 100%;
+		margin-right: -6.6rem;
+	}
+
+	.search-container .pure-form button {
+		float: right;
+		right: -5.6rem; /* Equals button width */
+	}
+}

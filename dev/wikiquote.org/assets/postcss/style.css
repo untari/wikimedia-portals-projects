@@ -1,0 +1,25 @@
+/* ::: Base ::: */
+@import 'wikimedia-ui-base/wikimedia-ui-base.css';
+@import '_vars.css';
+@import '_base.css';
+@import '_base-portal.css';
+@import '_buttons.css';
+@import '_forms.css';
+
+/* ::: Sections ::: */
+@import '_central-textlogo.css';
+@import '_central-featured.css';
+@import '_search.css';
+@import '_search-suggestions.css';
+@import '_search-language-picker.css';
+@import '_other-projects.css';
+@import '_other-languages.css';
+@import '_other-languages-bookshelf.css';
+@import '_app-badge.css';
+@import '_footer.css';
+
+/* ::: Special ::: */
+@import '_wm-portal.css';
+@import '_localization.css';
+@import '_ie.css';
+@import '_media-print.css';

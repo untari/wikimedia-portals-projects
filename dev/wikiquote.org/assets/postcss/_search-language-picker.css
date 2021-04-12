@@ -1,0 +1,152 @@
+/* ::: Language picker style (common to JS and non JS version) ::: */
+
+.styled-select {
+	display: none;
+	position: absolute;
+	top: var( --ss-pos-top );
+	bottom: var( --ss-pos-bottom );
+	right: var( --ss-pos-right );
+	max-width: var( --ss-width );
+	height: var( --ss-height );
+	border-radius: var( --border-radius-base );
+}
+
+.styled-select:hover {
+	background-color: var( --ss-c-grey-hover );
+}
+
+.styled-select .hide-arrow {
+	right: 3.2rem;
+	max-width: 6.8rem;
+	height: var( --ss-height );
+	overflow: hidden;
+	text-align: right;
+}
+
+.styled-select select {
+	background: transparent;
+	display: inline;
+	overflow: hidden;
+	height: var( --ss-height );
+	min-width: var( --ss-select-width );
+	max-width: var( --ss-select-width );
+	width: var( --ss-select-width );
+	outline: 0;
+	box-sizing: border-box;
+	border: 0;
+	line-height: var( --ss-height );
+
+	/* Hide default down arrow in webkit */
+	-webkit-appearance: none;
+
+	/* Firefox */
+	-moz-appearance: window;
+	text-indent: 0.01px;
+	text-overflow: '';
+
+	/* Opera */
+	opacity: 0;
+
+	/* All browsers */
+	appearance: none;
+	cursor: pointer;
+}
+
+/*
+--------> NON JS styled selector
+*/
+.styled-select.no-js {
+	width: var( --ss-width );
+}
+
+.styled-select.no-js select {
+	opacity: 1;
+	margin: 0;
+	padding: 0 2.4rem 0 0.8rem;
+	color: var( --ss-c-grey );
+}
+
+.styled-select.no-js .hide-arrow {
+	width: 6.8rem;
+}
+
+.search-container .styled-select.no-js .js-langpicker-label {
+	display: none;
+}
+
+/*
+--------> JS-only styled selector
+*/
+
+.styled-select.js-enabled .hide-arrow {
+	padding: 0 2.4rem 0 0.8rem;
+}
+
+.styled-select.js-enabled select {
+	background: transparent;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	z-index: var( --ss-select-z-index );
+	width: 100%;
+	border: 0;
+	margin: 0;
+	padding: 0 2.4rem 0;
+	color: transparent;
+	color: rgba( 255, 255, 255, 0 );
+}
+
+.styled-select.js-enabled select option {
+	color: var( --ss-c-grey );
+}
+
+.styled-select.js-enabled select:hover {
+	background-color: transparent;
+}
+
+.styled-select-active-helper {
+	display: none;
+}
+
+.styled-select.js-enabled select:focus + .styled-select-active-helper {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	width: 100%;
+	height: 100%;
+	outline: 1px solid var( --color-primary--focus );
+}
+
+.search-container .js-langpicker-label {
+	display: inline-block;
+	margin: 0;
+	color: var( --ss-c-grey );
+	font-size: 1.3rem;
+	line-height: var( --ss-height );
+	text-transform: uppercase;
+}
+/* END JS only lang selector idea */
+
+.styled-select select:hover {
+	background-color: var( --ss-c-grey-hover );
+}
+
+.styled-select select::-ms-expand {
+	display: none; /* hide default down arrow in IE10 */
+}
+
+/* firefox */
+.styled-select select:focus {
+	outline: 0;
+	box-shadow: none;
+}
+
+/* firefox */
+@-moz-document url-prefix() {
+	.styled-select select {
+		width: 110%;
+	}
+}

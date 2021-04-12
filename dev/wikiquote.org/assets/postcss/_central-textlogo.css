@@ -1,0 +1,96 @@
+/* ::: Central Logo ::: */
+
+/* Section containing the central Wikipedia header */
+
+.central-textlogo-wrapper {
+	display: inline-block;
+	vertical-align: bottom;
+}
+
+.central-textlogo {
+	position: relative;
+	margin: 4rem auto 0.5rem;
+	width: 270px; /* static width on desktop */
+	font-family: 'Linux Libertine', 'Hoefler Text', Georgia, 'Times New Roman', Times, serif;
+	font-size: 3rem;
+	font-weight: normal;
+	line-height: 3.3rem;
+	text-align: center;
+	/* Crossed W in Linux Libertine */
+	-moz-font-feature-settings: "ss05=1";
+	-moz-font-feature-settings: "ss05";
+	-webkit-font-feature-settings: "ss05";
+	-ms-font-feature-settings: "ss05";
+	font-feature-settings: "ss05";
+}
+
+.localized-slogan {
+	display: block;
+	font-family: var( --font-family-serif );
+	font-size: 1.5rem;
+	font-weight: normal;
+}
+
+.central-textlogo__image {
+	color: transparent;
+	display: inline-block;
+	overflow: hidden;
+	text-indent: -10000px;
+}
+
+.central-featured-logo {
+	position: absolute;
+	/* centering position of logo on desktop */
+	top: 158px;
+	left: 35px;
+}
+
+@media all and ( max-width: 480px ) {
+	.central-textlogo {
+		position: relative;
+		height: 70px;
+		width: auto;
+		margin: 0;
+		margin-top: 2rem;
+		text-align: center;
+		/* visual vertical alignment in an rtl compat way */
+		line-height: 2.5rem;
+		/* visual horizontal alignment in an rtl compat way */
+		text-indent: -1rem;
+	}
+
+	.central-textlogo-wrapper {
+		position: relative;
+		/* visual alignment */
+		top: 12px;
+		/* visual horizontal alignment in an rtl compat way */
+		text-indent: 0.2rem;
+	}
+
+	.svg-Wikipedia_wordmark {
+		/* modifying svg sprite size to shrink logo */
+		width: 150px;
+		height: 25px;
+		background-position: 0 -218px;
+		background-size: 100%;
+	}
+
+	.localized-slogan {
+		font-size: 1.4rem;
+	}
+
+	.central-featured-logo {
+		position: relative;
+		display: inline-block;
+		width: 57px;
+		height: auto;
+		left: 0;
+		top: 0;
+	}
+}
+
+@media all and ( max-width: 240px ) {
+	.central-textlogo__image {
+		height: auto;
+	}
+}
