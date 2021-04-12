@@ -32,12 +32,12 @@ gulp.task( 'help', function () {
 	console.log( '+-------------------------------------------------------------------------------------------------+' );
 	console.log( '| PORTAL-SPECIFIC TASKS :                                                                         |' );
 	console.log( '|                                                                                                 |' );
-	console.log( '| gulp lint --portal wikipedia.org            - run jslint on JS files on portal JS files         |' );
-	console.log( '| gulp watch --portal wikipedia.org           - watches dev directory and generates an index.html |' );
+	console.log( '| gulp lint --portal wikiquote.org            - run jslint on JS files on portal JS files         |' );
+	console.log( '| gulp watch --portal wikiquote.org           - watches dev directory and generates an index.html |' );
 	console.log( '|                                               file in it without inlined/minified assets        |' );
-	console.log( '| gulp --portal wikipedia.org                 - run all of the above on the specified portal page |' );
+	console.log( '| gulp --portal wikiquote.org                 - run all of the above on the specified portal page |' );
 	console.log( '|                                                                                                 |' );
-	console.log( '| gulp fetch-meta --portal wikipedia.org      - overwrite the portal page with source from Meta   |' );
+	console.log( '| gulp fetch-meta --portal wikiquote.org      - overwrite the portal page with source from Meta   |' );
 	console.log( '+-------------------------------------------------------------------------------------------------+' );
 	console.log();
 } );
@@ -320,19 +320,19 @@ function fetchMeta() {
 
 	requirePortalParam();
 
-	if ( portalParam === 'wikipedia.org' ) {
+	if ( portalParam === 'wikiquote.org' ) {
 		console.log( 'Cannot override ' + portalParam + ' portal using fetch-meta.' );
 		return process.exit( 1 );
 	}
 
 	if ( portalParam === 'all' ) {
-		portalsFromMeta = [ 'wikibooks.org', 'wikimedia.org', 'wikinews.org', 'wikiquote.org', 'wikiversity.org', 'wikivoyage.org', 'wiktionary.org' ];
+		portalsFromMeta = [ 'wikibooks.org', 'wikimedia.org', 'wikinews.org', 'wikipedia.org', 'wikiversity.org', 'wikivoyage.org', 'wiktionary.org' ];
 
-		portalsFromMeta.forEach( function ( wiki ) {
-			var request = preq.get( 'https://meta.wikimedia.org/w/index.php?title=Www.' + wiki + '_template&action=raw' )
+		portalsFromMeta.forEach( function ( wikiquote ) {
+			var request = preq.get( 'https://meta.wikimedia.org/w/index.php?title=Www.' + wikiquote + '_template&action=raw' )
 				.then( function ( response ) {
-					fs.mkdirSync( 'prod/' + wiki, { recursive: true } );
-					return fs.writeFileSync( 'prod/' + wiki + '/index.html', response.body, 'utf8' );
+					fs.mkdirSync( 'prod/' + wikiquote, { recursive: true } );
+					return fs.writeFileSync( 'prod/' + wikiquote + '/index.html', response.body, 'utf8' );
 				} );
 			portalRequests.push( request );
 		} );

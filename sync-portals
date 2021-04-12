@@ -2,7 +2,7 @@
 
 set -e
 
-scap sync-file portals/prod/wikipedia.org/assets $*
+scap sync-file portals/prod/wikiquote.org/assets $*
 scap sync-file portals $*
 
 # purgeList is called from from /srv/mediawiki-staging and not /srv/mediawiki

@@ -1,10 +1,10 @@
 {
 	"private": true,
 	"scripts": {
-		"start": "gulp update-stats && gulp watch --portal=wikipedia.org & npm run dev-server",
-		"dev-server": "es-dev-server --app-index ./dev/wikipedia.org/index.html --preserve-symlinks=true --watch --open",
+		"start": "gulp update-stats && gulp watch --portal=wikiquote.org & npm run dev-server",
+		"dev-server": "es-dev-server --app-index ./dev/wikiquote.org/index.html --preserve-symlinks=true --watch --open",
 		"test": "gulp -- lint",
-		"build-all-portals": "gulp -- lint && gulp -- update-stats && gulp --portal=all -- fetch-meta && gulp --portal=wikipedia.org -- default"
+		"build-all-portals": "gulp -- lint && gulp -- update-stats && gulp --portal=all -- fetch-meta && gulp --portal=wikiquote.org -- default"
 	},
 	"devDependencies": {
 		"bluebird": "^3.7.2",
@@ -32,6 +32,7 @@
 		"gulp-tap": "^2.0.0",
 		"gulp-uglify": "^3.0.2",
 		"gulp-useref": "^4.0.1",
+		"gulp-util": "^3.0.8",
 		"handlebars": "^4.7.6",
 		"moment": "^2.26.0",
 		"postcss-cssnext": "^3.1.0",
@@ -46,12 +47,15 @@
 	},
 	"bundlesize": [
 		{
-			"path": "prod/wikipedia.org/assets/js/index-*.js",
+			"path": "prod/wikiquote.org/assets/js/index-*.js",
 			"maxSize": "9.0KB"
 		},
 		{
-			"path": "prod/wikipedia.org/assets/js/gt-ie9-*.js",
+			"path": "prod/wikiquote.org/assets/js/gt-ie9-*.js",
 			"maxSize": "0.4KB"
 		}
-	]
+	],
+	"dependencies": {
+		"gulp-cli": "^2.3.0"
+	}
 }
